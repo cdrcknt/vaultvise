@@ -11,13 +11,6 @@ A modern web application for generating secure passwords and tracking password r
 - Copy-to-clipboard functionality  
 - Local storage for saving platform requirements  
 
-## Setup Instructions
-
-1. Clone this repository.  
-2. No build process required - it's a pure HTML/CSS/JS application.  
-3. Open `index.html` in your browser.  
-4. For development, you can use any local server (e.g., Live Server in VS Code).  
-
 ## Dependencies
 
 - **Tailwind CSS** (via CDN)  
