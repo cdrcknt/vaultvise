@@ -30,61 +30,67 @@
 
         <!-- Main Content Grid -->
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <!-- Password Generator Section -->
-            <div class="bg-white rounded-lg p-6 custom-shadow">
-                <h2 class="text-2xl font-semibold mb-6">Password Generator</h2>
-                
-                <!-- Generator Controls -->
-                <div class="space-y-4 mb-6">
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">Password Length</label>
-                        <input type="range" min="8" max="32" value="16" class="w-full" id="lengthSlider">
-                        <div class="flex justify-between text-sm text-gray-500">
-                            <span>8</span>
-                            <span id="lengthValue">16</span>
-                            <span>32</span>
+            <!-- Left Column -->
+            <div class="space-y-6">
+                <!-- Password Generator Section -->
+                <div class="bg-white rounded-lg p-6 custom-shadow">
+                    <h2 class="text-2xl font-semibold mb-6">Password Generator</h2>
+                    
+                    <!-- Generator Controls -->
+                    <div class="space-y-4 mb-6">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Password Length</label>
+                            <input type="range" min="8" max="32" value="16" class="w-full" id="lengthSlider">
+                            <div class="flex justify-between text-sm text-gray-500">
+                                <span>8</span>
+                                <span id="lengthValue">16</span>
+                                <span>32</span>
+                            </div>
+                        </div>
+
+                        <div class="space-y-2">
+                            <div class="flex items-center">
+                                <input type="checkbox" id="uppercase" checked class="rounded text-blue-600">
+                                <label class="ml-2 text-sm text-gray-700">Uppercase Letters</label>
+                            </div>
+                            <div class="flex items-center">
+                                <input type="checkbox" id="lowercase" checked class="rounded text-blue-600">
+                                <label class="ml-2 text-sm text-gray-700">Lowercase Letters</label>
+                            </div>
+                            <div class="flex items-center">
+                                <input type="checkbox" id="numbers" checked class="rounded text-blue-600">
+                                <label class="ml-2 text-sm text-gray-700">Numbers</label>
+                            </div>
+                            <div class="flex items-center">
+                                <input type="checkbox" id="symbols" checked class="rounded text-blue-600">
+                                <label class="ml-2 text-sm text-gray-700">Special Characters</label>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="space-y-2">
-                        <div class="flex items-center">
-                            <input type="checkbox" id="uppercase" checked class="rounded text-blue-600">
-                            <label class="ml-2 text-sm text-gray-700">Uppercase Letters</label>
+                    <!-- Generated Password Display -->
+                    <div class="bg-gray-50 p-4 rounded-lg mb-4">
+                        <div class="flex justify-between items-center">
+                            <span id="generatedPassword" class="generated-password text-lg"></span>
+                            <button id="copyButton" class="copy-button bg-blue-500 text-white px-4 py-2 rounded-lg text-sm">
+                                Copy
+                            </button>
                         </div>
-                        <div class="flex items-center">
-                            <input type="checkbox" id="lowercase" checked class="rounded text-blue-600">
-                            <label class="ml-2 text-sm text-gray-700">Lowercase Letters</label>
-                        </div>
-                        <div class="flex items-center">
-                            <input type="checkbox" id="numbers" checked class="rounded text-blue-600">
-                            <label class="ml-2 text-sm text-gray-700">Numbers</label>
-                        </div>
-                        <div class="flex items-center">
-                            <input type="checkbox" id="symbols" checked class="rounded text-blue-600">
-                            <label class="ml-2 text-sm text-gray-700">Special Characters</label>
+                        <div class="mt-2">
+                            <div class="bg-gray-200 rounded-full overflow-hidden">
+                                <div id="strengthBar" class="strength-bar bg-green-500 w-0"></div>
+                            </div>
+                            <p id="strengthText" class="text-sm text-gray-600 mt-1"></p>
                         </div>
                     </div>
+
+                    <button id="generateButton" class="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition-colors">
+                        Generate Password
+                    </button>
                 </div>
 
-                <!-- Generated Password Display -->
-                <div class="bg-gray-50 p-4 rounded-lg mb-4">
-                    <div class="flex justify-between items-center">
-                        <span id="generatedPassword" class="generated-password text-lg"></span>
-                        <button id="copyButton" class="copy-button bg-blue-500 text-white px-4 py-2 rounded-lg text-sm">
-                            Copy
-                        </button>
-                    </div>
-                    <div class="mt-2">
-                        <div class="bg-gray-200 rounded-full overflow-hidden">
-                            <div id="strengthBar" class="strength-bar bg-green-500 w-0"></div>
-                        </div>
-                        <p id="strengthText" class="text-sm text-gray-600 mt-1"></p>
-                    </div>
-                </div>
-
-                <button id="generateButton" class="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition-colors">
-                    Generate Password
-                </button>
+                <!-- Password History Section -->
+                <div id="passwordHistory"></div>
             </div>
 
             <!-- Password Requirements Tracker -->
@@ -134,33 +140,34 @@
                         <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors">
                             Add Platform
                         </button>
-                    </form>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-6 mt-12">
-        <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
-            <div class="text-center md:text-left mb-4 md:mb-0">
-                <p>Developed by Cedric Kent Centeno</p>
-            </div>
-            <div class="flex space-x-6">
-                <a href="mailto:cdrcknt@gmail.com" class="hover:text-blue-400 transition-colors">
-                    <i class="fas fa-envelope text-xl"></i>
-                </a>
-                <a href="https://github.com/cdrcknt" target="_blank" rel="noopener noreferrer" class="hover:text-blue-400 transition-colors">
-                    <i class="fab fa-github text-xl"></i>
-                </a>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Scripts -->
-    <script src="assets/js/passwordGenerator.js"></script>
-    <script src="assets/js/strengthCalculator.js"></script>
-    <script src="assets/js/platformManager.js"></script>
-    <script src="assets/js/main.js"></script>
-</body>
-</html>
+        
+            <!-- Footer -->
+            <footer class="bg-gray-800 text-white py-6 mt-12">
+                <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
+                    <div class="text-center md:text-left mb-4 md:mb-0">
+                        <p>Developed by Cedric Kent Centeno</p>
+                    </div>
+                    <div class="flex space-x-6">
+                        <a href="mailto:cdrcknt@gmail.com" class="hover:text-blue-400 transition-colors">
+                            <i class="fas fa-envelope text-xl"></i>
+                        </a>
+                        <a href="https://github.com/cdrcknt" target="_blank" rel="noopener noreferrer" class="hover:text-blue-400 transition-colors">
+                            <i class="fab fa-github text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+            </footer>
+        
+            <!-- Scripts -->
+            <script src="assets/js/passwordGenerator.js"></script>
+            <script src="assets/js/strengthCalculator.js"></script>
+            <script src="assets/js/platformManager.js"></script>
+            <script src="assets/js/historyManager.js"></script>
+            <script src="assets/js/main.js"></script>
+        </body>
+        </html>

@@ -78,3 +78,22 @@ input[type="number"]::-webkit-inner-spin-button {
     appearance: none;
     margin: 0;
 }
+
+/* History Styles */
+#passwordHistory input[type="text"] {
+    transition: all 0.2s ease;
+}
+
+#passwordHistory input[type="text"]:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);
+}
+
+#passwordHistory button {
+    transition: all 0.2s ease;
+}
+
+#passwordHistory .delete-password {
+    font-size: 1.25rem;
+    line-height: 1;
+}

@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const passwordGenerator = new PasswordGenerator();
     const strengthCalculator = new StrengthCalculator();
     const platformManager = new PlatformManager();
+    const historyManager = new PasswordHistoryManager();
 
     // DOM Elements
     const lengthSlider = document.getElementById('lengthSlider');
@@ -47,6 +48,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 const originalText = copyButton.textContent;
                 copyButton.textContent = 'Copied!';
                 copyButton.classList.add('bg-green-500');
+                // Add to history when copied
+                historyManager.addToHistory(password);
                 setTimeout(() => {
                     copyButton.textContent = originalText;
                     copyButton.classList.remove('bg-green-500');
